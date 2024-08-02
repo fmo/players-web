@@ -26,7 +26,7 @@ function groupPlayersByPosition(players) {
 }
 
 function orderPlayersByPosition(playersByPosition) {
-    const positionOrder = ["Goalkeeper", "Defender", "Midfielder", "Attacker"];
+    const positionOrder = ["Goalkeeper", "Left-Back", "Right-Back", "Centre-Back", "Defensive Midfield", "Central Midfield", "Left Winger", "Right Winger", "Attacking Midfield", "Centre-Forward"];
     let orderedPlayers = {};
 
     positionOrder.forEach(position => {
@@ -46,7 +46,7 @@ function displayPlayers(orderedPlayers) {
         resultElement.innerHTML += `<h3>${position}</h3>`;
 
         orderedPlayers[position].forEach(player => {
-            resultElement.innerHTML += `${player.firstname} ${player.lastname}<br />`;
+            resultElement.innerHTML += `<div><span id="shirt-numbers">${player.shirtNumber}</span> <span>${player.name}</span></div><br />`;
         });
     });
 }
