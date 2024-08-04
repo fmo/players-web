@@ -43,10 +43,32 @@ function displayPlayers(orderedPlayers) {
     resultElement.innerHTML = '';
 
     Object.keys(orderedPlayers).forEach(position => {
-        resultElement.innerHTML += `<h3>${position}</h3>`;
-
         orderedPlayers[position].forEach(player => {
-            resultElement.innerHTML += `<div><span id="shirt-numbers">${player.shirtNumber}</span> <span>${player.name}</span></div><br />`;
+            let formattedMarketValue = replaceZerosWithLetter(player.marketValue);
+
+            resultElement.innerHTML += `<div class="players">
+                <div class="shirt-number">${player.shirtNumber}</div>
+                <div class="player-photo"></div>
+                <div class="player-name-position">
+                    <div class="player-name">${player.name}</div>
+                    <div class="player-position">${position}</div>
+                </div>
+                <div class="player-value">${player.marketValueCurrency}${formattedMarketValue}</div>
+            </div>`;
         });
     });
+}
+
+// replaces 6 zeros with M and 5 zeros with K
+function replaceZerosWithLetter(marketValue) {
+    let marketValueString = marketValue.toString();
+    let marketValueLength = marketValueString.length;
+
+    if (marketValueLength > 6) {
+        return marketValueString.slice(0, marketValueLength - 6) + 'M';
+    } else if (marketValueLength > 3) {
+        return marketValueString.slice(0, marketValueLength - 3) + 'K';
+    } else {
+        return marketValueString;
+    }
 }

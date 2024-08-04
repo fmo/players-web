@@ -1,4 +1,31 @@
-#shirt-numbers {
-    background-color: bisque;
-    padding: 3px;
+.players {
+    padding: 10px;
+    background-color:darkslategray;
+    color:antiquewhite;
+    margin: 2px;
+    display: flex;
+}
+
+.shirt-number {
+    width: 50px;
+}
+
+.player-name-position {
+    width: 200px;
+}
+
+.player-value {
+    width: 100px
+}
+
+.player-name {
+    font-size: large;
+}
+
+.player-position {
+    font-size: small;
+}
+
+.player-photo {
+    border-width: 1px;
 }
